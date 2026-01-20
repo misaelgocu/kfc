@@ -25,7 +25,14 @@ SECRET_KEY = 'django-insecure-alr53#$2bimd$*p=1&wfb8odhu9_vbonie9sunwr6^f!cfxz+y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*' # temporalmente, aqui se listan solo losssss dominios
+]
+
+# IMPORTANTE: Debe incluir el protocolo (http:// o https://)
+CSRF_TRUSTED_ORIGINS = [
+    'https://country-reid-controlling-shopping.trycloudflare.com', # cambiar por el dominio 
+]
 
 
 # Application definition
