@@ -4,7 +4,8 @@ from ventas.api.serializers import (
     EmpresasSerializer,
     MarcasSerializer,
     SucursalesSerializer,
-    VentasSerializer
+    VentasSerializer,
+    VentasConRelacionesSerializer
     )
 
 # from kfc.models import Ventas
@@ -25,3 +26,11 @@ class SucursalesViewSet(viewsets.ModelViewSet):
 class VentasViewSet(viewsets.ModelViewSet):
     queryset = Ventas.objects.all()
     serializer_class = VentasSerializer
+
+# joins
+class VentasConRelacionesViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Ventas.objects.select_related(
+        'id_sucursal__id_marca__id_empresa'
+    ).all()
+    serializer_class = VentasConRelacionesSerializer
+
