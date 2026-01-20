@@ -29,6 +29,11 @@ ALLOWED_HOSTS = [
     '*' # temporalmente, aqui se listan solo losssss dominios
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173', #cambiarlo cuando se cambie el dominio
+    "http://127.0.0.1:5173",
+]
+
 # IMPORTANTE: Debe incluir el protocolo (http:// o https://)
 CSRF_TRUSTED_ORIGINS = [
     'https://country-reid-controlling-shopping.trycloudflare.com', # cambiar por el dominio 
@@ -46,10 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'corsheaders',
     'ventas'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
