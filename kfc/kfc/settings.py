@@ -26,17 +26,37 @@ SECRET_KEY = 'django-insecure-alr53#$2bimd$*p=1&wfb8odhu9_vbonie9sunwr6^f!cfxz+y
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'masters-humanities-creek-authority.trycloudflare.com',
+    'localhost',
+    '127.0.0.1',
     '*' # temporalmente, aqui se listan solo losssss dominios
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173', #cambiarlo cuando se cambie el dominio
     "http://127.0.0.1:5173",
+    "https://kfc-erp.netlify.app"
+]
+
+# Permite que el navegador envíe headers personalizados
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'bypass-tunnel-reminder', # <-- Importante
+    'cloudflare-cdn-cookie-protection'
 ]
 
 # IMPORTANTE: Debe incluir el protocolo (http:// o https://)
 CSRF_TRUSTED_ORIGINS = [
-    'https://country-reid-controlling-shopping.trycloudflare.com', # cambiar por el dominio 
+    'https://kfc-erp.netlify.app', # cambiar por el dominio 
+    'https://masters-humanities-creek-authority.trycloudflare.com'
 ]
 
 
